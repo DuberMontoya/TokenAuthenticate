@@ -1,4 +1,5 @@
 ﻿using AnimeApi.Models;
+using AnimeApi.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -14,11 +15,11 @@ namespace AnimeApi.Controllers
     [ApiController]
     public class AuthenticationController : ControllerBase
     {
-        private IConfiguration _configuration;
+        private IAuthenticateService _authenticateService;
 
-        public AuthenticationController(IConfiguration configuration)
+        public AuthenticationController(IAuthenticateService authenticateService)
         {
-            _configuration = configuration;
+            _authenticateService = authenticateService;
         }
 
         // GET: api/<AuthenticationController>
@@ -27,30 +28,11 @@ namespace AnimeApi.Controllers
         {
             if (login.Username == "admin" && login.Password == "password")
             {
-                var token = GenerateJwtToken(login.Username);
+                var token = _authenticateService.GenerateJwtToken(login.Username);
                 return Ok(new { token });
             }
              
             return Unauthorized();
-        }
-
-        private string GenerateJwtToken(string username)
-        {
-            var key = Encoding.ASCII.GetBytes(_configuration["JSONWebTocken:Key"]);
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim(ClaimTypes.Name, username)
-                }),
-                Expires = DateTime.UtcNow.AddHours(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
-                Issuer = _configuration["JSONWebTocken:Issuer"]
-            };
-
-            var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
         }
     }
 }

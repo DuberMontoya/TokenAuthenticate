@@ -40,7 +40,6 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
 //Add Authentication JWT
 var key = Encoding.ASCII.GetBytes(builder.Configuration["JSONWebTocken:key"]);
 
@@ -63,9 +62,6 @@ builder.Services.AddAuthentication(options =>
 });
 
 
-
-
-
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -81,6 +77,8 @@ builder.Services.AddSingleton<ICharapterRepository, CharapterRepository>();
 
 builder.Services.AddSingleton<IMusicRepository, MusicRepository>();
 builder.Services.AddSingleton<IMusicService, MusicService>();
+
+builder.Services.AddSingleton<IAuthenticateService, AuthenticateService>();
 
 var app = builder.Build();
 

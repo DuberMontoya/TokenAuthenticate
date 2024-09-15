@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimeApi", "AnimeApi\AnimeApi.csproj", "{01ACC3FC-29CB-413A-831F-17788E98CE5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnimeApi", "AnimeApi\AnimeApi.csproj", "{01ACC3FC-29CB-413A-831F-17788E98CE5E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimeApiApp", "AnimeApiApp\AnimeApiApp.csproj", "{A13A6943-E5E6-4030-92F5-987FED48252E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,12 @@ Global
 		{01ACC3FC-29CB-413A-831F-17788E98CE5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01ACC3FC-29CB-413A-831F-17788E98CE5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01ACC3FC-29CB-413A-831F-17788E98CE5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13A6943-E5E6-4030-92F5-987FED48252E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A13A6943-E5E6-4030-92F5-987FED48252E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A13A6943-E5E6-4030-92F5-987FED48252E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A13A6943-E5E6-4030-92F5-987FED48252E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A13A6943-E5E6-4030-92F5-987FED48252E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A13A6943-E5E6-4030-92F5-987FED48252E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

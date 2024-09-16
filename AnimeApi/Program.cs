@@ -101,10 +101,10 @@ if (app.Environment.IsDevelopment())
 }
 
 // Usar la política CORS
-app.UseCors("AllowAll");
-
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 
